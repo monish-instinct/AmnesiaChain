@@ -21,7 +21,7 @@ const Index = () => {
       <Advantages />
       <TechStack />
       <Roadmap />
-      <Team />
+      {/* <Team /> */}
       <GetInvolved />
       <Footer />
     </main>
