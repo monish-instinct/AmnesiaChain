@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* AmnesiaChain Design System - Futuristic Blockchain Theme */
+
+@layer base {
+  :root {
+    /* Light mode base colors */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    
+    /* Futuristic neon accent colors */
+    --neon-blue: 214 100% 50%;
+    --neon-purple: 271 81% 56%;
+    --neon-green: 142 76% 36%;
+    --neon-cyan: 180 100% 50%;
+    
+    /* Glass morphism backgrounds */
+    --glass: 240 10% 3.9% / 0.05;
+    --glass-border: 240 10% 3.9% / 0.1;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(214 100% 50%), hsl(271 81% 56%));
+    --gradient-secondary: linear-gradient(135deg, hsl(271 81% 56%), hsl(142 76% 36%));
+    --gradient-accent: linear-gradient(135deg, hsl(142 76% 36%), hsl(180 100% 50%));
+    
+    /* Card and surface colors */
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --card-glass: 240 10% 3.9% / 0.03;
+    
+    /* UI element colors */
+    --primary: 214 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 271 81% 56%;
+    --accent-foreground: 0 0% 100%;
+    
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 214 100% 50%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    /* Dark mode - default theme */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    
+    /* Enhanced neon colors for dark mode */
+    --neon-blue: 214 100% 60%;
+    --neon-purple: 271 81% 65%;
+    --neon-green: 142 76% 45%;
+    --neon-cyan: 180 100% 60%;
+    
+    /* Dark glass morphism */
+    --glass: 0 0% 100% / 0.05;
+    --glass-border: 0 0% 100% / 0.1;
+    
+    /* Dark mode gradients with enhanced neon */
+    --gradient-primary: linear-gradient(135deg, hsl(214 100% 60%), hsl(271 81% 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(271 81% 65%), hsl(142 76% 45%));
+    --gradient-accent: linear-gradient(135deg, hsl(142 76% 45%), hsl(180 100% 60%));
+    
+    /* Dark card colors with glass effect */
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --card-glass: 0 0% 100% / 0.03;
+    
+    /* Dark UI elements */
+    --primary: 214 100% 60%;
+    --primary-foreground: 240 10% 3.9%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 271 81% 65%;
+    --accent-foreground: 240 10% 3.9%;
+    
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 214 100% 60%;
+  }
+  
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  
+  /* Scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-accent rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary;
+  }
+}
+
+/* Custom utility classes for neon colors */
+@layer utilities {
+  .text-neon-blue {
+    color: hsl(var(--neon-blue));
+  }
+  .text-neon-purple {
+    color: hsl(var(--neon-purple));
+  }
+  .text-neon-green {
+    color: hsl(var(--neon-green));
+  }
+  .text-neon-cyan {
+    color: hsl(var(--neon-cyan));
+  }
+  
+  .bg-neon-blue\/10 {
+    background-color: hsl(var(--neon-blue) / 0.1);
+  }
+  .bg-neon-purple\/10 {
+    background-color: hsl(var(--neon-purple) / 0.1);
+  }
+  .bg-neon-green\/10 {
+    background-color: hsl(var(--neon-green) / 0.1);
+  }
+  .bg-neon-cyan\/10 {
+    background-color: hsl(var(--neon-cyan) / 0.1);
+  }
+  
+  .bg-neon-blue\/5 {
+    background-color: hsl(var(--neon-blue) / 0.05);
+  }
+  .bg-neon-purple\/5 {
+    background-color: hsl(var(--neon-purple) / 0.05);
+  }
+  .bg-neon-green\/5 {
+    background-color: hsl(var(--neon-green) / 0.05);
+  }
+  
+  .border-neon-blue\/20 {
+    border-color: hsl(var(--neon-blue) / 0.2);
+  }
+  .border-neon-purple\/20 {
+    border-color: hsl(var(--neon-purple) / 0.2);
+  }
+  .border-neon-green\/20 {
+    border-color: hsl(var(--neon-green) / 0.2);
+  }
+  
+  .border-neon-blue\/30 {
+    border-color: hsl(var(--neon-blue) / 0.3);
+  }
+  .border-neon-green\/30 {
+    border-color: hsl(var(--neon-green) / 0.3);
+  }
+  .border-neon-purple\/30 {
+    border-color: hsl(var(--neon-purple) / 0.3);
+  }
+  
+  /* Base neon border colors */
+  .border-neon-blue {
+    border-color: hsl(var(--neon-blue));
+  }
+  .border-neon-purple {
+    border-color: hsl(var(--neon-purple));
+  }
+  .border-neon-green {
+    border-color: hsl(var(--neon-green));
+  }
+  
+  /* Neon background colors */
+  .bg-neon-blue {
+    background-color: hsl(var(--neon-blue));
+  }
+  .bg-neon-purple {
+    background-color: hsl(var(--neon-purple));
+  }
+  .bg-neon-green {
+    background-color: hsl(var(--neon-green));
+  }
+  
+  /* Gradients as background */
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+  .bg-gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+  .bg-gradient-accent {
+    background: var(--gradient-accent);
+  }
+  
+  /* Fix for gradient text visibility */
+  .bg-gradient-primary.bg-clip-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  /* Ensure text is visible when gradients fail */
+  .text-gradient-fallback {
+    color: hsl(var(--neon-blue));
+  }
+  
+  /* Glass morphism effects */
+  .bg-glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .dark .bg-glass {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Card glass effect */
+  .bg-card-glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .dark .bg-card-glass {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Neon glow effects */
+  .shadow-neon {
+    box-shadow: 0 0 20px hsl(var(--neon-blue) / 0.3), 0 0 40px hsl(var(--neon-blue) / 0.1);
+  }
+  
+  /* Animations */
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 20px hsl(var(--neon-blue) / 0.3), 0 0 40px hsl(var(--neon-blue) / 0.1);
+    }
+    to {
+      box-shadow: 0 0 30px hsl(var(--neon-blue) / 0.4), 0 0 60px hsl(var(--neon-blue) / 0.2);
+    }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
